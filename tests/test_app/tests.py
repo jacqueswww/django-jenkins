@@ -5,7 +5,12 @@ from xml.etree import ElementTree as ET
 
 from django.core import mail
 from django.test import TestCase
-from unittest import skip
+
+try:
+    from unittest import skip
+except ImportError:
+    from django.utils.unittest import skip
+
 from django.test import LiveServerTestCase
 from selenium.webdriver.chrome.webdriver import WebDriver
 

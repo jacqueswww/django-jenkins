@@ -40,7 +40,7 @@ class Reporter(object):
             if options['csslint_ignore']:
                 cmd += ['--ignore=%s' % options['csslint_ignore']]
 
-            process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+            process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
             process_output, err = process.communicate()
             retcode = process.poll()
             if retcode not in [0, 1]:  # normal csslint return codes

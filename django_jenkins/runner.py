@@ -2,7 +2,11 @@ import os
 import sys
 import time
 
-from unittest import TextTestResult, TextTestRunner
+try:
+    from unittest import TextTestResult, TextTestRunner
+except ImportError:
+    from django.utils.unittest import TextTestResult, TextTestRunner
+
 from xml.etree import ElementTree as ET
 
 from django.conf import settings
