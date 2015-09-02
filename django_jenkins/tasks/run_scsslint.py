@@ -35,7 +35,7 @@ class Reporter(object):
             if config_file:
                 cmd += ['--config=%s' % config_file]
 
-            process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+            process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
             process_output, err = process.communicate()
             retcode = process.poll()
             if retcode not in [0, 1, 2]:  # normal scss-lint return codes

@@ -2,12 +2,16 @@ import os
 import sys
 import time
 
+try:
+    from unittest import TextTestResult, TextTestRunner
+except ImportError:
+    from django.utils.unittest import TextTestResult, TextTestRunner
+
 from xml.etree import ElementTree as ET
 
 from django.conf import settings
 from django.test.runner import DiscoverRunner
 from django.utils.encoding import smart_text
-from django.utils.unittest import TextTestResult, TextTestRunner
 
 
 class EXMLTestResult(TextTestResult):

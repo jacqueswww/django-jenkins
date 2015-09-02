@@ -30,7 +30,7 @@ class Reporter(object):
 
         cmd = ['jshint', '--reporter=jslint'] + files
 
-        process = subprocess.Popen(cmd, stdout=subprocess.PIPE)
+        process = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
         jshint_output, err = process.communicate()
         retcode = process.poll()
         if retcode not in [0, 1, 2]:  # normal jshint return codes
